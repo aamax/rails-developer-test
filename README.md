@@ -1,5 +1,10 @@
-# Simple News App - Rails Competency Test
-To get started please fork this project and carefully read the following instructions.
+# Simple News App - Rails Competency Test For T2Modus
+
+This application has been made in compliance with instructions at: https://github.com/t2modus/rails-developer-test
+
+I did not record myself working on it so no extra credit :( 
+
+I have not spent much time trying to deliver a fancy UI or UX.  I am shooting to demonstrate basic functionality and compentency and if you'd like to see more, please ask.  This is being working into a very busy schedule as I wrap up my current job and deal with some pressing family issues.  I am willing to go deeper if necessary so please let me know.
 
 Commit all of the code to your fork of this project. If you screen record yourself working through the competency test you'll get *(Extra Credit)*
 
