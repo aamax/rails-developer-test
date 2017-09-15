@@ -15,9 +15,19 @@
 #  last_sign_in_ip        :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  roles                  :string
 #
 
 class User < ApplicationRecord
+  ############################################################################################
+  ## PeterGate Roles                                                                        ##
+  ## The :user role is added by default and shouldn't be included in this list.             ##
+  ## The :root_admin can access any page regardless of access settings. Use with caution!   ##
+  ## The multiple option can be set to true if you need users to have multiple roles.       ##
+  petergate(roles: [:admin, :editor], multiple: false)                                      ##
+  ############################################################################################ 
+ 
+
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -26,7 +36,8 @@ class User < ApplicationRecord
 
   after_create :assign_default_role
 
-  
+
+
   private
   def assign_default_role
     self.add_role(:vanilla) if self.roles.blank?

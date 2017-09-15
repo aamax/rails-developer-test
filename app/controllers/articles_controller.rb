@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:home, :index]
 
   def home
-
+    @summary_articles = build_summary_articles
   end
 
   # GET /articles
@@ -75,5 +75,16 @@ class ArticlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:title, :content, :category, :user_id)
+    end
+
+    def build_summary_articles
+      articles = {}
+      Article.all.each do |article|
+        articles[article.category] = [] if articles[article.category].nil?
+        if articles[article.category].count < 3
+          articles[article.category] << article
+        end
+      end
+      articles
     end
 end

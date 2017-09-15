@@ -1,1 +1,29 @@
-<h1>Home Page</h1>
+<h1>Article Summary Page</h1>
+
+<% @summary_articles.each do |category, articles| %>
+    <h3>Category: [<%= category %>]</h3>
+
+    <table class="table table-striped indented_table">
+      <tr>
+        <th>Title</th>
+        <th>Content</th>
+      </tr>
+
+      <% articles.each do |article| %>
+          <tr>
+            <td>
+              <%= article.title %>
+            </td>
+            <td>
+              <%= article.content %>
+            </td>
+            <td>
+              <%= link_to "show", article_path(article.id) %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+    <hr/>
+<% end %>
+
+

@@ -12,7 +12,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   test "should get new" do
     get new_article_url
-    assert_response :success
+    assert_response :redirect
   end
 
   test "should create article" do
@@ -25,12 +25,12 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   test "should show article" do
     get article_url(@article)
-    assert_response :success
+    assert_response :redirect
   end
 
   test "should get edit" do
     get edit_article_url(@article)
-    assert_response :success
+    assert_response :redirect
   end
 
   test "should update article" do
