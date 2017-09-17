@@ -8,25 +8,22 @@
       <th>Content</th>
       <th>Category</th>
       <th>User</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= article.title %></td>
-        <td><%= article.content %></td>
-        <td><%= article.category %></td>
-        <td><%= article.user_id %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= render partial: 'article_index_entry', locals: {article: article} %>
+
+        <%= render partial: 'article_operations' %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Article', new_article_path %>
+<% if logged_in?(:editor) %>
+  <%= link_to 'New Article', new_article_path %>
+<% end %>

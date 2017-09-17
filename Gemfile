@@ -34,10 +34,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 
-gem 'bootstrap', '~> 4.0.0.beta'
+gem 'bootstrap-sass', '~> 3.3.7'
+
 gem 'devise'
 gem 'jquery-rails'
-gem 'rolify'
 gem 'petergate'
 
 group :development, :test do

@@ -1,0 +1,10 @@
+<td>
+  <% if logged_in?(:user) %>
+      <%= link_to article.title, article_path(article) %>
+  <% else %>
+      <%= article.title %>
+  <% end %>
+</td>
+<td><%= article.content %></td>
+<td><%= article.category %></td>
+<td><%= article.user.email %></td>

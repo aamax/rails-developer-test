@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<div class="well col-md-5">
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
+
+  <p>
+    <strong>Roles:</strong><br/>
+  <ul>
+    <% @roles.each do |role| %>
+        <li>
+          <%= role %>
+        </li>
+    <% end %>
+  </ul>
+  </p>
+  <hr/>
+
+  <% if logged_in?(:admin) %>
+      <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-sm btn-info" %> |
+  <% end %>
+  <%= link_to 'Index', users_path, class: "btn btn-sm btn-success" %>
+</div>

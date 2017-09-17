@@ -11,20 +11,29 @@ require 'ffaker'
 User.delete_all
 
 vanilla_user = User.create(email: 'vanilla@example.com', password: 'password')
-vanilla_user.add_role(:vanilla)
 
-editor_user = User.create(email: 'editor@example.com', password: 'password')
-editor_user.add_role(:editor)
+editor_user1 = User.new(email: 'editor1@example.com', password: 'password')
+editor_user1.roles=(:editor)
+editor_user1.save
 
-admin_user = User.create(email: 'admin@example.com', password: 'password')
-admin_user.add_role(:admin)
+editor_user2 = User.new(email: 'editor2@example.com', password: 'password')
+editor_user2.roles=(:editor)
+editor_user2.save
+
+admin_user = User.new(email: 'admin@example.com', password: 'password')
+admin_user.roles=(:admin)
+admin_user.save
+
+
 
 Article.delete_all
 
 ['Local', 'World', 'Sports', 'Social', 'Culture', 'Entertainment'].each do |category|
   (1..20).each do
-    article = Article.create(category: category, title: FFaker::HipsterIpsum.sentence,
-                             content: FFaker::HipsterIpsum.paragraph, user_id: editor_user.id)
+    [editor_user1, editor_user2].each do |user|
+      article = Article.create(category: category, title: FFaker::HipsterIpsum.sentence,
+                             content: FFaker::HipsterIpsum.paragraph, user_id: user.id)
+    end
   end
 end
 

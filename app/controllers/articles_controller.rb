@@ -2,6 +2,10 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:home, :index]
 
+  access all: [:home, :index, :show], editor: :all
+
+  NUMBER_TO_SHOW = 3
+
   def home
     @summary_articles = build_summary_articles
   end
@@ -79,9 +83,9 @@ class ArticlesController < ApplicationController
 
     def build_summary_articles
       articles = {}
-      Article.all.each do |article|
+      Article.ordered_by_date.each do |article|
         articles[article.category] = [] if articles[article.category].nil?
-        if articles[article.category].count < 3
+        if articles[article.category].count < NUMBER_TO_SHOW
           articles[article.category] << article
         end
       end

@@ -12,4 +12,7 @@
 #
 
 class Article < ApplicationRecord
+  belongs_to :user
+
+  scope :ordered_by_date, -> { order(created_at: :asc) }
 end

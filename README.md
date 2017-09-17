@@ -44,6 +44,8 @@ Table will contain **title**, **content**, **category**, **user_id**.
 
 ## Roles
 Use one of these gems: Petergate *(Preferred)*, Pundit, Cancancan.
+
+I have never used Petergate before but am using it as it's preferred.  I've used both of the others (and personally have grown to like Pundit).  I like using Rolify to manage roles and Pundit for authorization, but it looks like Petergate manages the roles itself.
 ###### Role Names
 * user
 * editor

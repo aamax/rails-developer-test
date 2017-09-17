@@ -11,21 +11,35 @@
  * It is generally better to create a new file per style scope.
  *
  */
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 .alert-notice {
-  background-color: #feffcd;
+  background-color: #56ff25;
 }
 
 .alert-error {
-  background-color: #ff7972;
+  background-color: #ff1a26;
 }
 
 .alert-alert {
-  background-color: #d4f7ff;
+  background-color: #ff884e;
 }
 
 .indented_table {
   margin-left: 20px;
 }
 
+.category_name {
+  font-weight: normal;
+  color: #496bff;
+}
+
+.category_label {
+  font-weight: bold;
+  font-size: large;
+}
+
+.login_btn {
+  margin-top: 10px;
+}
