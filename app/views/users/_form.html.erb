@@ -13,12 +13,35 @@
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email, id: :user_email %>
+    <%= form.text_field :email, id: :user_email, size: 35, required: true %>
   </div>
+    <br/><br/>
 
-    Manage roles
+    <h3>Manage roles</h3>
+    <table>
+      <tr>
+        <td class="col-md-1"><strong>User: </strong></td>
+        <td class="col-md-1"><%= check_box_tag "user_role",
+                                               :user, user.roles.include?(:user),
+                                               disabled: true %></td>
+      </tr>
+
+      <tr>
+        <td class="col-md-1"><strong>Editor: </strong></td>
+        <td class="col-md-1"><%= check_box_tag "editor_role", :editor, user.roles.include?(:editor) %></td>
+      </tr>
+
+      <tr>
+        <td class="col-md-1"><strong>Admin: </strong></td>
+        <td class="col-md-1"><%= check_box_tag "admin_role", :admin, user.roles.include?(:admin) %></td>
+      </tr>
+    </table>
+    <br/>
+    <hr/>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+<br/><br/>

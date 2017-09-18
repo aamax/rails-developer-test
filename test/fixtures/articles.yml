@@ -14,13 +14,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  content: MyText
-  category: MyString
-  user_id: 1
+  title: MyString1
+  content: MyText1
+  category: MyString1
+  user: one
 
 two:
-  title: MyString
-  content: MyText
-  category: MyString
-  user_id: 1
+  title: MyString2
+  content: MyText2
+  category: MyString2
+  user: two

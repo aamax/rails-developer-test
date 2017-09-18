@@ -43,3 +43,12 @@
 .login_btn {
   margin-top: 10px;
 }
+
+body {
+  background-color: #e8e8e8;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+  background-color: #f0b55e; // Choose your own color here
+}

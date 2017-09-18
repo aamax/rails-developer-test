@@ -1,5 +1,11 @@
 
 <h1>Articles</h1>
+<% if logged_in?(:editor) %>
+    <a href='<%= new_article_path %> 'title='Create Article'>
+      <i class='glyphicon glyphicon-plus'><strong> Create</strong></i>
+    </a>
+    <br/><br/>
+<% end %>
 
 <table class="table table-striped">
   <thead>
@@ -17,13 +23,10 @@
       <tr>
         <%= render partial: 'article_index_entry', locals: {article: article} %>
 
-        <%= render partial: 'article_operations' %>
+        <%= render partial: 'article_operations', locals: {article: article} %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-<% if logged_in?(:editor) %>
-  <%= link_to 'New Article', new_article_path %>
-<% end %>
+

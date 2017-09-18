@@ -78,10 +78,19 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
+      params[:article][:user_id] = current_user.id
       params.require(:article).permit(:title, :content, :category, :user_id)
     end
 
     def build_summary_articles
+      # I would like to make a better activerecord call to define this
+      # result set but am going with this for the time being (just due to
+      # the limitations I have on time right now.)
+      # I would look into using query groupings and limits to build the result
+      # set for 3 items in each category.
+      #
+      # This works although is not elegant by any stretch
+
       articles = {}
       Article.ordered_by_date.each do |article|
         articles[article.category] = [] if articles[article.category].nil?

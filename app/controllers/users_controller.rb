@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user.roles = build_role_value(params)
 
     respond_to do |format|
       if @user.save
@@ -41,6 +42,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    @user.roles = build_role_value(params)
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -69,6 +72,10 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:email)
+    params.require(:user).permit(:email, :roles)
+  end
+
+  def build_role_value(params)
+    params[:user][:roles] = [params[:user_role], params[:editor_role], params[:admin_role]].compact
   end
 end

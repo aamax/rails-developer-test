@@ -3,15 +3,17 @@
 <% @summary_articles.each do |category, articles| %>
     <p><span class="category_label">Category: </span> <span class="category_name"><%= category %></span></p>
 
-    <table class="table table-striped indented_table">
+    <table class="table table-striped table-bordered indented_table">
+      <thead>
       <tr>
         <th>Title</th>
         <th>Content</th>
         <% if logged_in?(:user) %>
-          <th>Operations</th>
+            <th>Operations</th>
         <% end %>
       </tr>
-
+      </thead>
+      <tbody>
       <% articles.each do |article| %>
           <tr>
             <td>
@@ -22,12 +24,15 @@
             </td>
 
             <% if logged_in?(:user) %>
-              <td>
-                <%= link_to "show", article_path(article.id) %>
-              </td>
+                <td align="center">
+                  <a href='<%= article_path(article.id) %> 'title='Show Article'>
+                    <i class='glyphicon glyphicon-eye-open'></i>
+                  </a>
+                </td>
             <% end %>
           </tr>
       <% end %>
+      </tbody>
     </table>
     <hr/>
 <% end %>
