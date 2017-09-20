@@ -68,6 +68,19 @@ sqlite is the database
 ## Testing
 minitest is the test framework. 
 
+be sure to install the chromedriver.   On my mac I installed it using brew install chromedriver.
+
+#### Running the tests:
+(from the console)
+
+**run the unit tests**
+
+rails test
+
+**run the system tests**
+
+rails test test/system/*
+
 ## Authentication
 Devise is used for authentication.
 
